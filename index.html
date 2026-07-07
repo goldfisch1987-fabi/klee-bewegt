@@ -41,12 +41,16 @@
   body::before {
     content: '';
     position: fixed;
-    top: 25%;
+    top: 36%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: min(700px, 100vw);
-    height: 500px;
-    background: radial-gradient(ellipse, var(--green-glow) 0%, transparent 65%);
+    width: 100vw;
+    height: 160px;
+    background: radial-gradient(
+      ellipse 70% 80px at 50% 50%,
+      var(--green-glow) 0%,
+      transparent 100%
+    );
     pointer-events: none;
   }
 
