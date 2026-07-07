@@ -233,17 +233,12 @@
 <body>
   <div class="content">
     <img src="logo.jpeg" alt="Klee Transport &amp; Logistik — Bewegt, was Sie weiterbringt" class="logo">
-    <h1>Coming <span class="accent">Soon</span></h1>
-    <p class="subtitle">
-      Wir arbeiten an unserem neuen Webauftritt.
-      Schon bald erfahren Sie hier alles rund um unsere Transport- &amp; Logistikleistungen.
-    </p>
-    <div class="divider"></div>
+    <p class="tagline">Bewegt, was Sie weiterbringt</p>
     <div class="contact">
-      <p>Kontakt</p>
+      <p class="contact-label">Kontakt</p>
       <a href="mailto:info@klee-bewegt.de">info@klee-bewegt.de</a>
     </div>
-    <span class="imprint-link" onclick="document.getElementById('imprint').classList.add('open')">Impressum</span>
+    <span class="imprint-link" role="button" tabindex="0" onclick="document.getElementById('imprint').classList.add('open')" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('imprint').classList.add('open')">Impressum</span>
   </div>
 
   <div class="modal-overlay" id="imprint" onclick="if(event.target===this)this.classList.remove('open')">
