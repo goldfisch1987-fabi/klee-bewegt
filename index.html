@@ -126,9 +126,24 @@
   footer {
     position: fixed;
     bottom: 1.2rem;
-    font-size: 0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.72rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.04em;
     color: var(--ink-subtle);
-    letter-spacing: 0.02em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-sep { color: var(--ink-subtle); }
+
+  footer .footer-imprint {
+    margin-top: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
   }
 
   /* Modal */
@@ -227,7 +242,6 @@
       <p class="contact-label">Kontakt</p>
       <a href="mailto:info@klee-bewegt.de">info@klee-bewegt.de</a>
     </div>
-    <span class="imprint-link" role="button" tabindex="0" onclick="document.getElementById('imprint').classList.add('open')" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('imprint').classList.add('open')">Impressum</span>
   </div>
 
   <div class="modal-overlay" id="imprint" onclick="if(event.target===this)this.classList.remove('open')">
@@ -264,6 +278,12 @@
     </div>
   </div>
 
-  <footer>&copy; 2026 Klee Transport &amp; Logistik</footer>
+  <footer>
+    <span class="imprint-link footer-imprint" role="button" tabindex="0"
+      onclick="document.getElementById('imprint').classList.add('open')"
+      onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('imprint').classList.add('open')">Impressum</span>
+    <span class="footer-sep">·</span>
+    &copy; 2026 Klee Transport &amp; Logistik
+  </footer>
 </body>
 </html>
