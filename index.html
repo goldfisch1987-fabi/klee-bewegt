@@ -66,6 +66,19 @@
     margin-bottom: clamp(2rem, 5vw, 3rem);
   }
 
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    text-wrap: balance;
+  }
+
+  .accent { color: var(--green); }
+
   .tagline {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.9rem;
@@ -233,6 +246,7 @@
 <body>
   <div class="content">
     <img src="logo.jpeg" alt="Klee Transport &amp; Logistik — Bewegt, was Sie weiterbringt" class="logo">
+    <h1>Coming <span class="accent">Soon</span></h1>
     <p class="tagline">Bewegt, was Sie weiterbringt</p>
     <div class="contact">
       <p class="contact-label">Kontakt</p>
