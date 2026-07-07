@@ -27,15 +27,20 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
     background: var(--bg);
     color: var(--ink);
     text-align: center;
-    padding: clamp(1.5rem, 5vw, 3rem);
     line-height: 1.7;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 5vw, 3rem);
   }
 
   body::before {
@@ -59,7 +64,6 @@
     z-index: 1;
     max-width: 600px;
     width: 100%;
-    padding-bottom: 4rem;
   }
 
   .logo {
@@ -132,18 +136,16 @@
   }
 
   footer {
-    position: fixed;
-    bottom: 1.2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.2rem;
     font-size: 0.72rem;
     font-family: 'Barlow Condensed', sans-serif;
     letter-spacing: 0.04em;
     color: var(--ink-subtle);
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
 
   .footer-sep { color: var(--ink-subtle); }
@@ -244,6 +246,7 @@
 </style>
 </head>
 <body>
+  <main class="main">
   <div class="content">
     <img src="logo.jpeg" alt="Klee Transport &amp; Logistik — Bewegt, was Sie weiterbringt" class="logo">
     <h1>Coming <span class="accent">Soon</span></h1>
@@ -253,6 +256,7 @@
       <a href="mailto:info@klee-bewegt.de">info@klee-bewegt.de</a>
     </div>
   </div>
+  </main>
 
   <div class="modal-overlay" id="imprint" onclick="if(event.target===this)this.classList.remove('open')">
     <div class="modal">
