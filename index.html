@@ -7,21 +7,22 @@
 <meta name="description" content="Klee Transport & Logistik — Bewegt, was Sie weiterbringt. Unsere neue Website kommt bald.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --green:        oklch(0.58 0.18 145);
-    --green-light:  oklch(0.68 0.18 145);
-    --green-glow:   oklch(0.58 0.18 145 / 0.2);
-    --ink:          oklch(0.93 0 0);
-    --ink-muted:    oklch(0.55 0 0);
-    --ink-subtle:   oklch(0.38 0 0);
-    --bg:           oklch(0.06 0 0);
-    --bg-elevated:  oklch(0.12 0.005 145);
-    --border:       oklch(0.20 0.005 145);
+    --green:       oklch(0.62 0.18 145);
+    --green-light: oklch(0.72 0.18 145);
+    --ink:         oklch(0.97 0 0);
+    --ink-muted:   oklch(0.72 0 0);
+    --ink-subtle:  oklch(0.52 0 0);
+    --bg:          oklch(0.06 0 0);
+    --bg-elevated: oklch(0.10 0.005 145);
+    --border:      oklch(0.20 0.005 145);
   }
+
+  html, body { height: 100%; }
 
   body {
     min-height: 100vh;
@@ -29,146 +30,210 @@
     flex-direction: column;
     font-family: 'Barlow', sans-serif;
     font-weight: 400;
-    background: var(--bg);
     color: var(--ink);
-    text-align: center;
-    line-height: 1.7;
+    line-height: 1.6;
+
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(
+        to bottom,
+        oklch(0.06 0 0 / 0.45) 0%,
+        oklch(0.06 0 0 / 0.78) 55%,
+        oklch(0.06 0 0 / 0.88) 100%
+      ),
+      url('https://images.unsplash.com/photo-1655478157959-3fcfc543c1a2?w=1920&q=80&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center 60%;
+    background-attachment: fixed;
   }
 
+  /* ── Header ── */
+  .site-header {
+    padding: clamp(1rem, 3vw, 1.75rem) clamp(1.5rem, 5vw, 3rem);
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    width: min(280px, 60vw);
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.55);
+  }
+
+  /* ── Main ── */
   .main {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(1.5rem, 5vw, 3rem);
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: 36%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 160px;
-    background: radial-gradient(
-      ellipse 70% 80px at 50% 50%,
-      var(--green-glow) 0%,
-      transparent 100%
-    );
-    pointer-events: none;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem);
   }
 
   .content {
-    position: relative;
-    z-index: 1;
-    max-width: 600px;
+    max-width: 760px;
     width: 100%;
+    text-align: center;
   }
 
-  .logo {
-    width: min(600px, 92vw);
-    margin-bottom: clamp(2rem, 5vw, 3rem);
+  /* Label */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
   }
 
+  .eyebrow::before,
+  .eyebrow::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--green);
+    opacity: 0.7;
+  }
+
+  /* Hero headline */
   h1 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
+    line-height: 0.88;
     color: var(--ink);
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
     text-wrap: balance;
   }
 
-  .accent { color: var(--green); }
+  h1 .word-coming { display: block; }
 
+  h1 .word-soon {
+    display: block;
+    color: var(--ink);
+  }
+
+  /* Divider */
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: var(--green);
+    margin: 0 auto clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  /* Subtitle */
   .subtitle {
-    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
     color: var(--ink-muted);
-    line-height: 1.8;
-    margin-bottom: clamp(2rem, 4vw, 3rem);
-    max-width: 48ch;
-    margin-inline: auto;
+    line-height: 1.7;
+    max-width: 46ch;
+    margin: 0 auto clamp(1rem, 2vw, 1.5rem);
+  }
+
+  /* Contact */
+  .contact {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
   }
 
   .contact-label {
-    margin-bottom: 0.4rem;
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
     font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-subtle);
   }
 
   .contact a {
-    color: var(--green);
+    color: var(--ink);
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 400;
-    transition: color 0.2s ease;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--green);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
   }
+
   .contact a:hover,
   .contact a:focus-visible {
     color: var(--green-light);
+    border-color: var(--green-light);
   }
 
-  .imprint-link {
-    display: inline-block;
-    margin-top: clamp(2rem, 4vw, 3rem);
-    font-size: 0.78rem;
-    color: var(--ink-subtle);
-    cursor: pointer;
-    transition: color 0.2s ease;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-  }
-  .imprint-link:hover { color: var(--ink-muted); }
-  .imprint-link:focus-visible {
-    color: var(--ink-muted);
+  .contact a:focus-visible {
     outline: 2px solid var(--green);
-    outline-offset: 3px;
+    outline-offset: 4px;
     border-radius: 2px;
   }
 
+  /* ── Footer ── */
   footer {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1.2rem;
-    font-size: 0.72rem;
+    justify-content: space-between;
+    padding: 1.1rem clamp(1.5rem, 5vw, 3rem);
     font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.04em;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--ink-subtle);
-    white-space: nowrap;
+    border-top: 1px solid oklch(0.97 0 0 / 0.07);
+    gap: 1rem;
   }
 
-  .footer-sep { color: var(--ink-subtle); }
+  .footer-left { white-space: nowrap; }
+  .footer-right { white-space: nowrap; text-align: right; }
 
-  footer .footer-imprint {
-    margin-top: 0;
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
+  .imprint-btn {
+    background: none;
+    border: none;
+    color: var(--ink-subtle);
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+  }
+
+  .imprint-btn:hover { color: var(--ink-muted); }
+
+  .imprint-btn:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 2px;
     color: var(--ink-muted);
   }
 
-  /* Modal */
+  .footer-photo {
+    color: var(--ink-subtle);
+    opacity: 0.7;
+  }
+
+  /* ── Modal ── */
   .modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: oklch(0.05 0 0 / 0.88);
+    background: oklch(0.04 0 0 / 0.90);
     z-index: 10;
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
   .modal-overlay.open { display: flex; }
 
@@ -215,7 +280,7 @@
   .modal a {
     color: var(--green);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
   }
   .modal a:hover,
   .modal a:focus-visible { color: var(--green-light); }
@@ -231,31 +296,44 @@
     cursor: pointer;
     line-height: 1;
     padding: 0.5rem;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
   }
   .modal-close:hover { color: var(--ink); }
 
-  /* Entrance */
+  /* ── Entrance animation ── */
   @media (prefers-reduced-motion: no-preference) {
-    .content { animation: arrive 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .content { animation: arrive 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
     @keyframes arrive {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   }
 </style>
 </head>
 <body>
-  <main class="main">
-  <div class="content">
+
+  <header class="site-header">
     <img src="logo.jpeg" alt="Klee Transport &amp; Logistik — Bewegt, was Sie weiterbringt" class="logo">
-    <h1>Coming <span class="accent">Soon</span></h1>
-    <p class="subtitle">Hier entsteht der neue Webauftritt von Klee Transport &amp; Logistik. Bald finden Sie alle Informationen zu unseren Leistungen — von Umzügen und Frachttransporten bis hin zu flexiblen Logistiklösungen für Privat- und Geschäftskunden in Berlin und Umgebung.</p>
-    <div class="contact">
-      <p class="contact-label">Kontakt</p>
-      <a href="mailto:info@klee-bewegt.de">info@klee-bewegt.de</a>
+  </header>
+
+  <main class="main">
+    <div class="content">
+      <p class="eyebrow">Neue Website</p>
+
+      <h1>
+        <span class="word-coming">Coming</span>
+        <span class="word-soon">Soon</span>
+      </h1>
+
+      <div class="divider"></div>
+
+      <p class="subtitle">Hier entsteht der neue Webauftritt von Klee Transport &amp; Logistik. Bald finden Sie alle Informationen zu unseren Leistungen — von Umzügen und Frachttransporten bis hin zu flexiblen Logistiklösungen für Privat- und Geschäftskunden in Berlin und Umgebung.</p>
+
+      <div class="contact">
+        <span class="contact-label">Kontakt</span>
+        <a href="mailto:info@klee-bewegt.de">info@klee-bewegt.de</a>
+      </div>
     </div>
-  </div>
   </main>
 
   <div class="modal-overlay" id="imprint" onclick="if(event.target===this)this.classList.remove('open')">
@@ -293,11 +371,17 @@
   </div>
 
   <footer>
-    <span class="imprint-link footer-imprint" role="button" tabindex="0"
-      onclick="document.getElementById('imprint').classList.add('open')"
-      onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('imprint').classList.add('open')">Impressum</span>
-    <span class="footer-sep">·</span>
-    &copy; 2026 Klee Transport &amp; Logistik
+    <div class="footer-left">
+      <button class="imprint-btn"
+        onclick="document.getElementById('imprint').classList.add('open')"
+        onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('imprint').classList.add('open')">Impressum</button>
+      &nbsp;·&nbsp;
+      &copy; 2026 Klee Transport &amp; Logistik
+    </div>
+    <div class="footer-right footer-photo">
+      Foto: Joshua Woroniecki / Unsplash
+    </div>
   </footer>
+
 </body>
 </html>
